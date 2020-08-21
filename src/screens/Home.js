@@ -4,7 +4,8 @@ import {
     Text,
     View,
     TouchableOpacity,
-    Dimensions
+    Dimensions,
+    ToastAndroid
 } from 'react-native';
 import { Feather } from 'react-native-vector-icons';
 import SearchBar from '../components/SearchBar';
@@ -27,8 +28,19 @@ export default class Home extends Component {
     componentDidMount() {
         Dimensions.addEventListener('change', () => {
             const { width, height } = Dimensions.get('window');
-           this.setState({ width: width, height: height });
+            this.setState({ width: width, height: height });
         })
+    }
+
+
+    messageHandler() {
+        ToastAndroid.showWithGravityAndOffset(
+            "You Called An Action",
+            ToastAndroid.LONG,
+            ToastAndroid.BOTTOM,
+            25,
+            50
+        )
     }
 
     render() {
@@ -69,7 +81,7 @@ export default class Home extends Component {
             headerText: {
                 flex: 1,
                 position: 'absolute',
-                top: this.state.height * 0.13   ,
+                top: this.state.height * 0.13,
                 color: '#ffffff',
                 fontSize: 20,
                 left: this.state.width * 0.2,
@@ -132,13 +144,19 @@ export default class Home extends Component {
                         {
                             this.state.moreMenuVisibility ?
                                 <View style={stylesheet.moreMenu}>
-                                    <TouchableWithoutFeedback>
+                                    <TouchableWithoutFeedback
+                                        onPress={() => this.messageHandler()}
+                                    >
                                         <Text style={stylesheet.moreMenuText}>Account</Text>
                                     </TouchableWithoutFeedback>
-                                    <TouchableWithoutFeedback>
+                                    <TouchableWithoutFeedback
+                                        onPress={() => this.messageHandler()}
+                                    >
                                         <Text style={stylesheet.moreMenuText}>Settings</Text>
                                     </TouchableWithoutFeedback>
-                                    <TouchableWithoutFeedback>
+                                    <TouchableWithoutFeedback
+                                        onPress={() => this.messageHandler()}
+                                    >
                                         <Text style={stylesheet.moreMenuText}>About</Text>
                                     </TouchableWithoutFeedback>
                                 </View>

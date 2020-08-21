@@ -64,7 +64,7 @@ export default class CategoryListBoxed extends Component {
             catItem: {
                 alignItems: 'center',
                 width: this.state.width < 526 ? 150 : this.state.width * 0.3,
-                height: 100,
+                height: 130,
                 justifyContent: 'center',
                 margin: 20,
                 borderRadius: 20,
@@ -85,7 +85,7 @@ export default class CategoryListBoxed extends Component {
                 flex: 1,
                 alignItems: 'center',
                 width: this.state.width < 526 ? 150 : this.state.width * 0.3,
-                height: 100,
+                height: 130,
                 justifyContent: 'center',
                 margin: 20,
                 borderRadius: 20,
@@ -121,7 +121,7 @@ export default class CategoryListBoxed extends Component {
                         let poss = 'left';
                         let appStyle = { ...catStyle.catItem };
                         if (index % 2 == 1) {
-                            appStyle = { ...catStyle.catItemEnd, marginTop: -120 };
+                            appStyle = { ...catStyle.catItemEnd, marginTop: -150 };
                         }
                         return (
                             <TouchableWithoutFeedback
